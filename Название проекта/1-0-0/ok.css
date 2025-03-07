@@ -1,0 +1,126 @@
+/*  ✪ https://zam.usite.pro/publ/...
+    ✫ Версия 1.0.0
+    © Copyright Плюшки для сайтов 2024
+*/
+
+/* ✦ --all-.. .all-c.. Цвета ✦ *//* #region */
+/*  • --all-C            = color title, border, backgraund, box-shadow inset
+    • --all-Ct           = текст послабей для текста
+
+    • --all-bg-93        = backgraund (Прозрацный)
+
+    • --all-br:          = border
+
+    • --all-b-sh         = box-shadow
+    • --all-t-sh         = text-shadow
+*/
+[class*="all-c0"] {/*0~> */
+    --all-C: #f44;
+    --all-Ct: #f44c;
+    --all-bg-93: #200e;/* не использовал */
+    --all-br: #511;/* не использовал */
+    --all-b-sh: #f448;
+}
+[class*="all-c1"] {/*1~> */
+    --all-C: #0b0;
+    --all-Ct: #0b0c;
+    --all-bg-93: #020e;
+    --all-br: #151;
+    --all-b-sh: #0b06;
+}
+[class*="all-c2"] {/*2~> */
+    --all-C: #f90;
+    --all-Ct: #f90c;
+    --all-bg-93: #210e;
+    --all-br: #530;
+    --all-b-sh: #f909;
+}
+[class*="all-c3"] {/*3~> */
+    --all-C: #dd0;
+    --all-Ct: #dd0c;
+    --all-bg-93: #220e;
+    --all-br: #551;
+    --all-b-sh: #dd09;
+}
+[class*="all-c4"] {/*4~> */
+    --all-C: #08f;
+    --all-Ct: #08fc;
+    --all-bg-93: #012e;
+    --all-br: #037;
+    --all-b-sh: #08f6;
+}
+[class*="all-c5"] {/*5~> */
+    --all-C: #999;
+    --all-Ct: #999c;
+    --all-bg-93: #222e;
+    --all-br: #555;
+    --all-b-sh: #8886;
+}
+[class*="all-c6"] {/*6~> */
+    --all-C: #f0f;
+    --all-Ct: #f0fc;
+    --all-bg-93: #202e;
+    --all-br: #505;
+    --all-b-sh: #f0f6;
+}
+[class*="all-c7"] {/*7~> */
+    --all-C: #0bb;
+    --all-Ct: #0bbc;
+    --all-bg-93: #022e;
+    --all-br: #055;
+    --all-b-sh: #0bb6;
+}
+[class*="all-c8"] {/*8~> Чёрный - Для белого фона */
+  --all-C: #333;
+  --all-Ct: #222;
+  --all-bg-93: #222e;
+  --all-br: #000;
+  --all-b-sh: #3336;
+}
+.temaT .all-c8 {/* 8 Белый - Для тёмного фона */
+  --all-C: #ccc;
+  --all-Ct: #fff;
+  --all-bg-93: #222e;
+  --all-br: #fff;
+  --all-b-sh: #ccc6;
+}
+/* ✦ --all- .all-c.. Цвета ✦ *//* #endregion */
+
+/* !!! Использовать только для конкретных элементов проекта !!!
+  Ибо будет конфликт
+*/
+#x, #x::after, #x::before,
+#x > *, #x > *::after, #x > *::before {/* Помогает интеграции */
+  position: relative;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  outline: 0;
+  box-sizing: border-box;
+  line-height: 1.1;
+  font-size: inherit;/* уравнивает все элементы */
+}
+
+/* ✦ .temaT Для тёмного фона ✦ *//* #region */
+/* • Для тёмного фона добавим class
+      в: <body class="temaT"
+   
+   По умолчанию белый фон!
+*/
+.temaT .proekt {/* Тёмный */
+  --bg: #012;  /* background Фон сайта */
+  --Ct: #ccc;  /* текст */
+}
+/* ✦ .temaT Для тёмного фона ✦ *//* #endregion */
+
+/* ✦ Проект ✦ *//* #region */
+    /* ✦✦ ! ✦✦ *//* #region */
+.proekt {
+  --Pbg: var(--bg, #fff);/* background Фон сайта */
+  --PCt: var(--Ct, #000);/* текст */
+}
+    /* ✦✦ ! ✦✦ *//* #endregion */
+
+
+/* ✦ Проект ✦ *//* #endregion */
