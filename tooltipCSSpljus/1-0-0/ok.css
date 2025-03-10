@@ -1,0 +1,224 @@
+/*  ✪ https://zam.usite.pro/publ/...
+    ✫ Версия 1.0.0
+    © Copyright Плюшки для сайтов 2024
+*/
+
+/* ✦ --all-.. .all-c.. Цвета ✦ *//* #region */
+/*  • --all-C            = color title, border, backgraund, box-shadow inset
+    • --all-Ct           = текст послабей для текста
+
+    • --all-bg-93        = backgraund (Прозрацный)
+
+    • --all-br:          = border
+
+    • --all-b-sh         = box-shadow
+    • --all-t-sh         = text-shadow
+*/
+[class*="all-c0"] {/*0~> */
+    --all-C: #f44;
+    --all-bg-93: #200e;
+    --all-b-sh: #f448;
+}
+[class*="all-c1"] {/*1~> */
+    --all-C: #0b0;
+    --all-bg-93: #020e;
+    --all-b-sh: #0b06;
+}
+[class*="all-c2"] {/*2~> */
+    --all-C: #f90;
+    --all-bg-93: #210e;
+    --all-b-sh: #f909;
+}
+[class*="all-c3"] {/*3~> */
+    --all-C: #dd0;
+    --all-bg-93: #220e;
+    --all-b-sh: #dd09;
+}
+[class*="all-c4"] {/*4~> */
+    --all-C: #08f;
+    --all-bg-93: #012e;
+    --all-b-sh: #08f6;
+}
+[class*="all-c5"] {/*5~> */
+    --all-C: #999;
+    --all-bg-93: #222e;
+    --all-b-sh: #8886;
+}
+[class*="all-c6"] {/*6~> */
+    --all-C: #f0f;
+    --all-bg-93: #202e;
+    --all-b-sh: #f0f6;
+}
+[class*="all-c7"] {/*7~> */
+    --all-C: #0bb;
+    --all-bg-93: #022e;
+    --all-b-sh: #0bb6;
+}
+[class*="all-c8"] {/*8~> Чёрный - Для белого фона */
+  --all-C: #333;
+  --all-bg-93: #222e;
+  --all-b-sh: #3336;
+}
+[class*="inf-"].all-c8 {/*8~> Чёрный Корекция цвета */
+  --all-C: #ddd;
+}
+.temaT .all-c8 {/* 8 Белый - Для белого фона */
+  --all-C: #ccc;
+  --all-bg-93: #222e;
+  --all-b-sh: #ccc6;
+}
+/* ✦ --all- .all-c.. Цвета ✦ *//* #endregion */
+
+/* !!! Использовать только для конкретных элементов проекта !!!
+  Ибо будет конфликт
+*/
+.vpCssP, .vpCssP [class*="vp-"], .vpCssP [class*="vp-"]::after {/* Помогает интеграции */
+  position: relative;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  outline: 0;
+  box-sizing: border-box;
+  line-height: 1.1;
+  font-size: inherit;/* уравнивает все элементы */
+}
+
+/* ✦ Всплывающая подсказка css Плюс html (tooltip) ✦ *//* #region */
+    /* ✦✦ ! ✦✦ *//* #region */
+.vpCssP {
+  --inf-C: var(--all-C);/* Цвет текста */
+  --inf-bg: var(--all-bg-93);/* Цвет фона */
+  --vpP-br: var(--all-C);/* border 1px Рамка + Стрелка */
+  --inf-b-shI: var(--all-b-sh);/* Цвет тени внутри контенера */
+  display: inline-block;
+  font-size: 1rem;/* html */
+}
+    /* ✦✦ ! ✦✦ *//* #endregion */
+
+    /* ✦✦ Окно + стрелка ✦✦ *//* #region */
+        /* ✦✦✦ ! ✦✦✦ *//* #region */
+.vpCssP [class*="vp-"] {z-index: 998;opacity:0;
+  position: absolute;
+  display: block;
+  padding: 2px;/* Поля вокруг текста */
+  width: max-content; /* Максимальная ширина подсказки */
+  max-width: 70vw;
+  max-height: 70vh;
+  text-align: center;/* Расположение текста */
+  font-size: .875em;/* Размер текста */
+  font-weight: 400;/* Толщина текста */
+  letter-spacing: .067em;/* Отступ между буквами */
+  color: var(--inf-C);/* Цвет текста */
+  background: var(--inf-bg);/* Цвет фона */
+  border: 1px solid var(--vpP-br);/* Параметры рамки */
+  border-radius: 4px;/* Скругления уголков рамки */
+  text-shadow: 1px 1px 1px #000;/* Параметры тени текста */
+  box-shadow: 0 0 4px #000, inset 0 0 1px var(--inf-b-shI); /* Параметры тени,  Параметры тени внутри */
+  cursor: auto;
+  user-select: none;
+  pointer-events: none;
+}
+.vpCssP:hover [class*="vp-"] {/* Откроем */
+  opacity:1;
+  transform: translate(0, 0);
+  transition: .3s;/* Время появления подсказки */
+}
+
+.vpCssP [class*="vp-"]::after {/* Стрелка */
+  content: '';
+  position: absolute;
+  border: 6px solid #0000;
+}
+        /* ✦✦✦ ! ✦✦✦ *//* #endregion */
+        
+        /* ✦✦✦ Лево|Право .vp-(L|R) ✦✦✦ *//* #region */
+.vp-R, .vp-L,
+:is(.vp-R, .vp-L)::after {/* По центру */
+  top: 50%;
+  transform: translate(-9px, -50%)
+}
+
+.vp-R {/* Право */
+  left: calc(100% + 11px)
+}
+.vp-R::after {
+  left: -3px;
+  border-right-color: var(--vpP-br)!important;
+}
+
+.vp-L {/* Лево */
+  right: calc(100% + 11px)
+}
+.vp-L::after {
+  right: -21px;
+  border-left-color: var(--vpP-br)!important
+}
+
+.vpCssP:hover :is(.vp-R, .vp-L) {
+  transform: translate(0, -50%);
+}
+        /* ✦✦✦ Лево|Право .vp-(L|R) ✦✦✦ *//* #endregion */
+
+        /* ✦✦✦ Верх|Низ .vp-(T|B) ✦✦✦ *//* #region */
+.vp-T, .vp-B,
+:is(.vp-T, .vp-B)::after {/* По центру */
+  left: 50%;
+  transform: translate(-50%, -9px)
+}
+
+.vp-T {
+  bottom: calc(100% + 11px);
+}
+.vpCssP [class*="vp-T"]::after {/* Верх */
+  bottom: -21px;
+  border-top-color: var(--vpP-br)!important
+}
+
+.vp-B {
+  top: calc(100% + 11px);
+}
+.vpCssP [class*="vp-B"]::after {/* .vp-B, .vp-BL, .vp-BR*/
+  top: -3px;
+  border-bottom-color: var(--vpP-br)!important
+}
+
+.vpCssP:hover :is(.vp-T, .vp-B) {/* Верх, Низ */
+  transform: translate(-50%, 0)
+}
+        /* ✦✦✦ Верх|Низ .vp-(T|B) ✦✦✦ *//* #endregion */
+
+        /* ✦✦✦ Право(Низ|Верх) vp-(BR|TR)", Лево(Низ|Верх) = vp-(BL|TL)" ✦✦✦ *//* #region */
+.vp-BL, .vp-BR, .vp-TL, .vp-TR {
+  transform: translate(0, -9px)
+}
+:is(.vp-BL, .vp-BR, .vp-TL, .vp-TR)::after {
+  border: 10px solid #0000;
+  transform: translate(0, -9px)
+}
+
+.vp-TR, .vp-TL {
+  bottom: calc(100% + 16px);
+}
+.vp-BR, .vp-BL {
+  top: calc(100% + 16px);
+}
+
+.vp-BL, .vp-TL {
+  left: 0;
+}
+:is(.vp-BL, .vp-TL)::after {
+  left: 9px;
+  border-left-color: var(--vpP-br)!important
+}
+
+.vp-BR, .vp-TR {
+  right: 0
+}
+:is(.vp-BR, .vp-TR)::after {
+  right: 9px;
+  border-right-color: var(--vpP-br)!important
+}
+        /* ✦✦✦ Право(Низ|Верх) .vp-(BR|TR)", Лево(Низ|Верх) = .vp-(BL|TL)" ✦✦✦ *//* #endregion */
+    /* ✦✦ Окно + стрелка ✦✦ *//* #endregion */
+/* ✦ Всплывающая подсказка css Плюс html (tooltip) ✦ *//* #endregion */
