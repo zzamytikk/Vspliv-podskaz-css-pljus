@@ -41,15 +41,22 @@
           border-collapse: collapse;
           text-align: center;
         }
-        table.VPtPrimer .vpCssP {
+        .VPtPrimer .vpCssP,
+        .VPtPrimer + .vpCssP {
+          margin: 2px;
+          padding: 3px;
           width: 60px;
-          border: 1px solid red;
+          border-radius: 35%;
+          box-shadow: 0 0 2px #777
         }
         /* Открыто: */
-        .VPtPrimer[otkr] .vpCssP [class*="vp-"] {
+        .VPtPrimer[otkr] .vpCssP [class*="vp-"],
+        .VPtPrimer[otkr] + .vpCssP [class*="vp-"]{
           opacity: 1;
+          z-index: 1
         }
-        .VPtPrimer[otkr] :is(.vp-R, .vp-L) {
+        .VPtPrimer[otkr] :is(.vp-R, .vp-L),
+        .VPtPrimer[otkr] + .vpCssP .vp-R {
           transform: translate(0, -50%);
         }
         .VPtPrimer[otkr] :is(.vp-T, .vp-B) {/* Верх, Низ */
@@ -62,31 +69,36 @@
       
       <table class="VPtPrimer" otkr>
         <tr>
-          <td><div class="vpCssP">TR<div class="vp-TR">Окно TR</div></div></td>
-          <td><div class="vpCssP">T<div class="vp-T">Окно T</div></div></td>
-          <td><div class="vpCssP">TL<div class="vp-TL">Окно TL</div></div></td>
+          <td><div class="vpCssP">.vp-TR<div class="vp-TR all-c0">.all-c0</div></div></td>
+          <td><div class="vpCssP">.vp-T<div class="vp-T all-c1">.all-c1</div></div></td>
+          <td><div class="vpCssP">.vp-TL<div class="vp-TL all-c2">.all-c2</div></div></td>
         </tr>
         <tr>
-          <td><div class="vpCssP">L<div class="vp-L">Окно L</div></div></td>
+          <td><div class="vpCssP">.vp-L<div class="vp-L all-c3">.all-c3</div></div></td>
           <th>•</th>
-          <td><div class="vpCssP">R<div class="vp-R">Окно R</div></div></td>
+          <td><div class="vpCssP">.vp-R<div class="vp-R all-c4">.all-c4</div></div></td>
         </tr>
         <tr>
-          <td><div class="vpCssP">BR<div class="vp-BR">Окно BR</div></div></td>
-          <td><div class="vpCssP">B<div class="vp-B">Окно B</div></div></td>
-          <td><div class="vpCssP">BL<div class="vp-BL">Окно BL</div></div></td>
+          <td><div class="vpCssP">.vp-BR<div class="vp-BR all-c5">.all-c5</div></div></td>
+          <td><div class="vpCssP">.vp-B<div class="vp-B all-c6">.all-c6</div></div></td>
+          <td><div class="vpCssP">.vp-BL<div class="vp-BL all-c7">.all-c7</div></div></td>
         </tr>
       </table>
-    </div></fieldset>
+      <div class="vpCssP" style="display:table; margin: auto;text-align: center;">.vp-R<div class="vp-R all-c8">.all-c8</div></div>
+      
+      <h4 class="hr-n1 hr-L"><b>Разные варианты открытия:</b></h4> 
+      <div class="vpCssP"><button>Много текста</button><div class="vp-R">Пример много текста! Пример много текста!Пример много текста!Пример много текста!Пример много текста!Пример много текста!Пример много текста!</div></div>
+      
+      Подсказка<div class="vpCssP">
+        <button>ТУТ!</button> &lt;-- вот
+        <div class="vp-B"><b>Она самая</b> проверка <font color="red">font color red</font></div>
+      </div>!
+      </div></fieldset>
     
     <h4 class="hr-n1 hr-L all-c0"><b>Презентация:</b></h4>
     <!-- ••• Презентация НАЧАЛО: ••• -->
-    lala
-    <div class="vpCssP">
-      <button>button</button>
-      <div class="vpCssPo">primer <button>click</button> chpok</div>
-    </div>
-    lala
+     
+    
 
     <!-- ••• Презентация КОНЕЦ! ••• -->
   </main>

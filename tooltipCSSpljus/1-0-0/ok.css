@@ -59,7 +59,7 @@
   --all-bg-93: #222e;
   --all-b-sh: #3336;
 }
-[class*="inf-"].all-c8 {/*8~> Чёрный Корекция цвета */
+.vpCssP > [class*="vp-"].all-c8 {/*8~> Чёрный Корекция цвета */
   --all-C: #ddd;
 }
 .temaT .all-c8 {/* 8 Белый - Для белого фона */
@@ -72,7 +72,7 @@
 /* !!! Использовать только для конкретных элементов проекта !!!
   Ибо будет конфликт
 */
-.vpCssP, .vpCssP [class*="vp-"], .vpCssP [class*="vp-"]::after {/* Помогает интеграции */
+.vpCssP, .vpCssP > [class*="vp-"], .vpCssP > [class*="vp-"]::after {/* Помогает интеграции */
   position: relative;
   margin: 0;
   padding: 0;
@@ -87,45 +87,45 @@
 /* ✦ Всплывающая подсказка css Плюс html (tooltip) ✦ *//* #region */
     /* ✦✦ ! ✦✦ *//* #region */
 .vpCssP {
-  --inf-C: var(--all-C);/* Цвет текста */
-  --inf-bg: var(--all-bg-93);/* Цвет фона */
-  --vpP-br: var(--all-C);/* border 1px Рамка + Стрелка */
-  --inf-b-shI: var(--all-b-sh);/* Цвет тени внутри контенера */
   display: inline-block;
-  font-size: 1rem;/* html */
 }
     /* ✦✦ ! ✦✦ *//* #endregion */
 
     /* ✦✦ Окно + стрелка ✦✦ *//* #region */
         /* ✦✦✦ ! ✦✦✦ *//* #region */
-.vpCssP [class*="vp-"] {z-index: 998;opacity:0;
+.vpCssP > [class*="vp-"] {z-index: 998;opacity:0;
+  --vpP-C: var(--all-C);/* Цвет текста */
+  --vpP-bg: var(--all-bg-93);/* Цвет фона */
+  --vpP-br: var(--all-C);/* border 1px Рамка + Стрелка */
+  --vpP-b-shI: var(--all-b-sh);/* Цвет тени внутри контенера */
   position: absolute;
   display: block;
   padding: 2px;/* Поля вокруг текста */
   width: max-content; /* Максимальная ширина подсказки */
-  max-width: 70vw;
-  max-height: 70vh;
+  max-width: 50vw;
+  /* max-height: 50vh; *//* Выйдет за пределы самой подсказки !*/
   text-align: center;/* Расположение текста */
   font-size: .875em;/* Размер текста */
+  font-size: 1rem;/* html */
   font-weight: 400;/* Толщина текста */
   letter-spacing: .067em;/* Отступ между буквами */
-  color: var(--inf-C);/* Цвет текста */
-  background: var(--inf-bg);/* Цвет фона */
+  color: var(--vpP-C);/* Цвет текста */
+  background: var(--vpP-bg);/* Цвет фона */
   border: 1px solid var(--vpP-br);/* Параметры рамки */
   border-radius: 4px;/* Скругления уголков рамки */
   text-shadow: 1px 1px 1px #000;/* Параметры тени текста */
-  box-shadow: 0 0 4px #000, inset 0 0 1px var(--inf-b-shI); /* Параметры тени,  Параметры тени внутри */
+  box-shadow: 0 0 4px #000, inset 0 0 1px var(--vpP-b-shI); /* Параметры тени,  Параметры тени внутри */
   cursor: auto;
   user-select: none;
   pointer-events: none;
 }
-.vpCssP:hover [class*="vp-"] {/* Откроем */
+.vpCssP:hover > [class*="vp-"] {/* Откроем */
   opacity:1;
   transform: translate(0, 0);
   transition: .3s;/* Время появления подсказки */
 }
 
-.vpCssP [class*="vp-"]::after {/* Стрелка */
+.vpCssP > [class*="vp-"]::after {/* Стрелка */
   content: '';
   position: absolute;
   border: 6px solid #0000;
@@ -155,7 +155,7 @@
   border-left-color: var(--vpP-br)!important
 }
 
-.vpCssP:hover :is(.vp-R, .vp-L) {
+.vpCssP:hover > :is(.vp-R, .vp-L) {
   transform: translate(0, -50%);
 }
         /* ✦✦✦ Лево|Право .vp-(L|R) ✦✦✦ *//* #endregion */
@@ -170,7 +170,7 @@
 .vp-T {
   bottom: calc(100% + 11px);
 }
-.vpCssP [class*="vp-T"]::after {/* Верх */
+.vpCssP > [class*="vp-T"]::after {/* Верх */
   bottom: -21px;
   border-top-color: var(--vpP-br)!important
 }
@@ -178,12 +178,12 @@
 .vp-B {
   top: calc(100% + 11px);
 }
-.vpCssP [class*="vp-B"]::after {/* .vp-B, .vp-BL, .vp-BR*/
+.vpCssP > [class*="vp-B"]::after {/* .vp-B, .vp-BL, .vp-BR*/
   top: -3px;
   border-bottom-color: var(--vpP-br)!important
 }
 
-.vpCssP:hover :is(.vp-T, .vp-B) {/* Верх, Низ */
+.vpCssP:hover > :is(.vp-T, .vp-B) {/* Верх, Низ */
   transform: translate(-50%, 0)
 }
         /* ✦✦✦ Верх|Низ .vp-(T|B) ✦✦✦ *//* #endregion */
