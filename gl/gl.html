@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Всплывающая подсказка css ++</title>
+  <title>Всплывающая подсказка css +</title>
   <link href="https://fonts.googleapis.com/css?family=Material+Icons|Comfortaa|Istok+Web:400,700&amp;subset=cyrillic" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
   
@@ -33,73 +33,181 @@
 <body><div id="M"><div></div></div>
   <!-- <header><nav></nav></header> -->
   <main>
-    <fieldset class="all-c1 v-BG0" style="--zHid: 6ex;" zhid="0">
-    <legend>Пример</legend><button zhidb><p><s></s></p></button><div>
-      <style>
-        .VPtPrimer {
-          margin: 50px auto;
-          border-collapse: collapse;
-          text-align: center;
-        }
-        .VPtPrimer .vpCssP,
-        .VPtPrimer + .vpCssP {
-          margin: 2px;
-          padding: 3px;
-          width: 60px;
-          border-radius: 35%;
-          box-shadow: 0 0 2px #777
-        }
-        /* Открыто: */
-        .VPtPrimer[otkr] .vpCssP [class*="vp-"],
-        .VPtPrimer[otkr] + .vpCssP [class*="vp-"]{
-          opacity: 1;
-          z-index: 1
-        }
-        .VPtPrimer[otkr] :is(.vp-R, .vp-L),
-        .VPtPrimer[otkr] + .vpCssP .vp-R {
-          transform: translate(0, -50%);
-        }
-        .VPtPrimer[otkr] :is(.vp-T, .vp-B) {/* Верх, Низ */
-          transform: translate(-50%, 0)
-        }
-        .VPtPrimer[otkr] :is(.vp-BL, .vp-BR, .vp-TL, .vp-TR) {
-          transform: translate(0, 0);
-        }
-      </style>
-      
-      <table class="VPtPrimer" otkr>
-        <tr>
-          <td><div class="vpCssP">.vp-TR<div class="vp-TR all-c0">.all-c0</div></div></td>
-          <td><div class="vpCssP">.vp-T<div class="vp-T all-c1">.all-c1</div></div></td>
-          <td><div class="vpCssP">.vp-TL<div class="vp-TL all-c2">.all-c2</div></div></td>
-        </tr>
-        <tr>
-          <td><div class="vpCssP">.vp-L<div class="vp-L all-c3">.all-c3</div></div></td>
-          <th>•</th>
-          <td><div class="vpCssP">.vp-R<div class="vp-R all-c4">.all-c4</div></div></td>
-        </tr>
-        <tr>
-          <td><div class="vpCssP">.vp-BR<div class="vp-BR all-c5">.all-c5</div></div></td>
-          <td><div class="vpCssP">.vp-B<div class="vp-B all-c6">.all-c6</div></div></td>
-          <td><div class="vpCssP">.vp-BL<div class="vp-BL all-c7">.all-c7</div></div></td>
-        </tr>
-      </table>
-      <div class="vpCssP" style="display:table; margin: auto;text-align: center;">.vp-R<div class="vp-R all-c8">.all-c8</div></div>
-      
-      <h4 class="hr-n1 hr-L"><b>Разные варианты открытия:</b></h4> 
+    <fieldset class="all-c1 v-BG0" style="--zHid: 6ex;" zhid="1">
+    <legend>Разные варианты открытия</legend><button zhidb><p><s></s></p></button>
+    <div>
       <div class="vpCssP"><button>Много текста</button><div class="vp-R">Пример много текста! Пример много текста!Пример много текста!Пример много текста!Пример много текста!Пример много текста!Пример много текста!</div></div>
       
       Подсказка<div class="vpCssP">
         <button>ТУТ!</button> &lt;-- вот
         <div class="vp-B"><b>Она самая</b> проверка <font color="red">font color red</font></div>
       </div>!
-      </div></fieldset>
+    </div></fieldset>
     
     <h4 class="hr-n1 hr-L all-c0"><b>Презентация:</b></h4>
     <!-- ••• Презентация НАЧАЛО: ••• -->
-     
+    <link href="/db/publ/tooltipCSSpljus/1-0-0/m.css" rel="stylesheet">
     
+    <div class="ram-V0 ram-V2 gI-inf all-c1"><div>
+      <b>Всплывающая подсказка</b> обычный блок с текстом, который появляется при наведении на элемент(ссылки, кнопки и т.д).
+      Подсказка даёт более подробную информацию о содержимом элемента.
+    </div></div> 
+    
+    <style>
+      .vpPOK > div {
+        margin: 9px;
+        min-width: min-content;
+      }
+      
+      /* Покажем */
+      .vpPOK [class*="vp-"] {
+        opacity: 1;
+        z-index: 1;
+        position: relative;
+        transform: translate(0)
+      }
+      .vpPOK :is(.vp-R, .vp-L, .vp-T, .vp-B) {
+        left: unset;
+        right: unset;
+      }
+    </style>
+    <!-- ✂ Цветовой набор -->
+    <div class="ram-n1-1 ram-V1-1X vpPOK">
+      <div class="vpCssP">
+        <div class="vp-TR all-c0">.vp-TR .all-c0</div>
+      </div><div>
+        <div class="vpCssP"><div class="vp-T all-c1">.vp-T all-c1</div></div>
+      </div><div>
+        <div class="vpCssP"><div class="vp-TL all-c2">.vp-TL all-c2</div></div>
+      </div><div>
+        <div class="vpCssP"><div class="vp-R all-c3">.vp-R all-c3</div></div>
+      </div><div>
+        <div class="vpCssP"><div class="vp-L all-c4">.vp-L all-c4</div></div>
+      </div><div>
+        <div class="vpCssP"><div class="vp-BR all-c5">.vp-BR all-c5</div></div>
+      </div><div>
+        <div class="vpCssP"><div class="vp-B all-c6">.vp-B all-c6</div></div>
+      </div><div>
+        <div class="vpCssP"><div class="vp-BL all-c7">.vp-BL all-c7</div></div>
+      </div><div>
+        <div class="vpCssP"><div class="vp-TR all-c8">.vp-TR all-c8</div></div>
+      </div>
+    </div>
 
+    <div class="ram-V0 ram-V2 gI-inf all-c2"><div>
+      С возможностью отображения <u class="u-n0 all-c1">HTML кодов</u> в подсказке.
+    </div></div>
+
+    <h4 class="hr-n1 hr-L" style="--hr-lin: var(--Ct)"><b>Добавим (html, css) подсказку:</b></h4>
+    <p>Для создания подсказки в HTML добавим к нужному элементу пользовательский атрибут <span class="cod-scb">data-t = </span><span class="cod-atr">"Текст подсказки"</span> с текстом подсказки.</p>
+    <p>Для выбора <u class="u-n0 all-c1">стороны появления</u> подсказки добавим в атрибут <span class="cod-scb">class</span>:</p>
+    <!-- ✂ Стороны поивления -->
+    <div class="ram-n1-1 ram-V1 all-c1">
+      <div class="vpCssP">
+        <i>Право центр</i>
+        <b>class</b><s>vp-R</s>
+        <div class="vp-R all-c8">Право центр</div>
+      </div>
+      <div class="vpCssP">
+        <i>Верх слева на право</i>
+        <b>class</b><s>vp-TL</s>
+        <div class="vp-TL all-c8">Верх слева на право</div>
+      </div>
+      <div class="vpCssP">
+        <i>Верх центр</i>
+        <b>class</b><s>vp-T</s>
+        <div class="vp-T all-c8">Верх центр</div>
+      </div>
+      <div class="vpCssP">
+        <i>Верх справа на лево</i>
+        <b>class</b><s>vp-TR</s>
+        <div class="vp-TR all-c8">Верх справа на лево</div>
+      </div>
+      <div class="vpCssP">
+        <i>Низ справа на лево</i>
+        <b>class</b><s>vp-BR</s>
+        <div class="vp-BR all-c8">Низ справа на лево</div>
+      </div>
+      <div class="vpCssP">
+        <i>Низ центр</i>
+        <b>class</b><s>vp-B</s>
+        <div class="vp-B all-c8">Низ центр</div>
+      </div>
+      <div class="vpCssP">
+        <i>Низ слева на право</i>
+        <b>class</b><s>vp-BL</s>
+        <div class="vp-BL all-c8">Низ слева на право</div>
+      </div>
+      <div class="vpCssP">
+        <i>Лево центр</i>
+        <b>class</b><s>vp-L</s>
+        <div class="vp-L all-c8">Лево центр</div>
+      </div>
+    </div>
+      
+    <p>Для выбора <u class="u-n0 all-c1">расцветки подсказки</u> добавим в атрибут <span class="cod-scb">class</span>:</p>
+    <div class="ram-n1-1 ram-V1 all-c2"><!-- ✂ Цвета -->
+      <div>
+        <i>Красная</i>
+        <b>class</b><s>all-c0</s>
+      </div>
+      <div>
+        <i>Зелёный</i>
+        <b>class</b><s>all-c1</s>
+      </div>
+      <div>
+        <i>Оранжевый</i>
+        <b>class</b><s>all-c2</s>
+      </div>
+      <div>
+        <i>Жёлтый</i>
+        <b>class</b><s>all-c3</s>
+      </div>
+      <div>
+        <i>Синий</i>
+        <b>class</b><s>all-c4</s>
+      </div>
+      <div>
+        <i>Серый</i>
+        <b>class</b><s>all-c5</s>
+      </div>
+      <div>
+        <i>Розовый</i>
+        <b>class</b><s>all-c6</s>
+      </div>
+      <div>
+        <i>Океан</i>
+        <b>class</b><s>all-c7</s>
+      </div>
+      <div>
+        <i>Белый/Чёрный</i>
+        <b>class</b><s>all-c8</s>
+      </div>
+    </div>
+     
+    <!-- HTML пример -->
+    <pre id="zCod" class="ram-n0 all-c5" data-ram-zag="HTML"><div><div></div><code class="v-BG0">
+    &lt;!-- Добавить в &lt;head>..&lt;/head>: -->
+    &lt;link href="https://zam.usite.pro/db/publ/tooltipCSSpljus/1-0-0/m.css" rel="stylesheet"><!-- Вид `Всплывающая подсказка` -->
+    </code></div></pre>
+    <!-- HTML пример -->
+    <pre id="zCod" class="ram-n0 all-c5" data-ram-zag="HTML"><div><div></div><code class="v-BG0">
+    &lt;!-- Установим `Всплывающая подсказка`: -->
+    &lt;div class="vpCssP">&lt;!-- Оболочка для ориентира появления подсказки -->
+    &nbsp; &lt;button>Наведи на меня!&lt;/button>&lt;!-- Для чего подсказка -->
+    &nbsp; &lt;div class="vp-B">&lt;b>Она самая&lt;/b> проверка &lt;font color="red">font color red&lt;/font>&lt;/div>&lt;!-- Подсказка -->
+    &lt;/div>
+    </code></div></pre>
+    <b style="color:red">►</b> Исходники(css): <a href="https://github.com/zzamytikk/Vspliv-podskaz-css-pljus/tree/main/tooltipCSSpljus/1-0-0" target="_blank">github</a> <i style="opacity:.4">(m. - Сокращённый вариант, ok. - Подробный)</i>
+    
+    <!-- Для тёмного дизайна -->
+    <div class="ram-V0 ram-V2 gI-inf all-c2"><div>
+      Для тёмного дизайна сайта, необходимо добавить <u class="u-n0 all-c1">class="temaT"</u>
+    </div></div>
+    <pre id="zCod" class="ram-n0 all-c5" data-ram-zag="HTML"><div><div></div><code class="v-BG0">
+    &lt;!-- Необходимо добавить в body class="temaT" -->
+    &lt;body class="temaT">
+    </code></div></pre>
     <!-- ••• Презентация КОНЕЦ! ••• -->
   </main>
   <!-- <footer></footer> -->
